@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.HelloDisruptor", "HelloDi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.HelloLockless", "HelloLockless\1.HelloLockless.csproj", "{A1E6743C-71FB-4E0C-80BC-670FE6E42D91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.MultiEventDisruptor", "MultiEventDisruptor\3.MultiEventDisruptor.csproj", "{FDD89DB2-98BE-42CF-9308-7D591DC62CA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{4533EC33-5992-4DB7-82B7-FD2A854F2D88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{A1E6743C-71FB-4E0C-80BC-670FE6E42D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1E6743C-71FB-4E0C-80BC-670FE6E42D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1E6743C-71FB-4E0C-80BC-670FE6E42D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD89DB2-98BE-42CF-9308-7D591DC62CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD89DB2-98BE-42CF-9308-7D591DC62CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD89DB2-98BE-42CF-9308-7D591DC62CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD89DB2-98BE-42CF-9308-7D591DC62CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4533EC33-5992-4DB7-82B7-FD2A854F2D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4533EC33-5992-4DB7-82B7-FD2A854F2D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4533EC33-5992-4DB7-82B7-FD2A854F2D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4533EC33-5992-4DB7-82B7-FD2A854F2D88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
