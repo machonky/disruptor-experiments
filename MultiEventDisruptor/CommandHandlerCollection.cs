@@ -13,21 +13,21 @@ namespace MultiEventDisruptor
 
         private static readonly DefaultCommandHandler defaultHandler = new DefaultCommandHandler();
 
-        private readonly Dictionary<Type, IEventHandler<ICommand>> handlers;
+        private readonly Dictionary<Type, object> handlers;
 
         public CommandHandlerCollection()
         {
-            handlers = new Dictionary<Type, IEventHandler<ICommand>>();
+            handlers = new Dictionary<Type, object>();
         }
 
-        public void AddHandler(Type handlerType, IEventHandler<ICommand> commandHandlerInstance)
+        public void AddHandler(Type handlerType, object commandHandlerInstance)
         {
             handlers[handlerType] = commandHandlerInstance;
         }
 
-        public IEventHandler<ICommand> GetHandler(Type handlerType)
+        public object GetHandler(Type handlerType)
         {
-            IEventHandler<ICommand> handler;
+            object handler;
             if (handlers.TryGetValue(handlerType, out handler))
             {
                 return handler;

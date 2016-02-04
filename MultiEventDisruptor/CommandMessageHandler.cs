@@ -14,7 +14,7 @@ namespace MultiEventDisruptor
         public void OnNext(CommandMessage data, long sequence, bool endOfBatch)
         {
             var command = data.Command;
-            _commandHandlers.GetHandler(command.GetType()).OnNext((dynamic)command, sequence, endOfBatch);
+            ((dynamic)_commandHandlers.GetHandler(command.GetType())).OnNext((dynamic)command, sequence, endOfBatch);
         }
     }
 }
