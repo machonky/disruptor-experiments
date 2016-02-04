@@ -2,6 +2,8 @@
 {
     public class AppBase
     {
-        protected const int MAX = 100000000;
+        public const int Million = 1000000;
+        protected const int Iterations = 100*Million;
+
     }
 }

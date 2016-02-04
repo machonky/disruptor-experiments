@@ -2,8 +2,6 @@
 {
     class Program
     {
-        static volatile int j = 0;
-
         static void Main(string[] args)
         {
             var a1 = new NoLockApp();

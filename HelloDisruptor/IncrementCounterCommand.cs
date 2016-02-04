@@ -6,7 +6,8 @@ namespace HelloDisruptor
     {
         public Guid ObjectId { get; private set; }
         public DateTimeOffset Timestamp { get; private set; }
-        public IncrementCounterCommand(Guid objectId, DateTimeOffset timestamp)
+
+        public void Init(Guid objectId, DateTimeOffset timestamp)
         {
             ObjectId = objectId;
             Timestamp = timestamp;
