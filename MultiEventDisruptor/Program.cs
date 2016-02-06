@@ -10,6 +10,8 @@ namespace MultiEventDisruptor
             var container = new UnityContainer();
             container.RegisterInstance<IObjectIdService>(new ObjectIdService());
             container.RegisterInstance<IUtcClockService>(new UtcClockService());
+            container.RegisterInstance<IConcertService>(new ConcertService());
+            container.RegisterType<IApplicationServiceBus, ApplicationServiceBus>();
             container.RegisterInstance<ITicketCommandFactory>(new TicketCommandFactory());
 
             var theApp = container.Resolve<TicketingApplication>();

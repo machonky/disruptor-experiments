@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Disruptor;
 
 namespace MultiEventDisruptor
 {
     public class CommandHandlerCollection
     {
-        private class DefaultCommandHandler : IEventHandler<ICommand>
-        {
-            public void OnNext(ICommand data, long sequence, bool endOfBatch) {}
-        }
-
-        private static readonly DefaultCommandHandler defaultHandler = new DefaultCommandHandler();
+        private static readonly DefaultCommandHandler DefaultHandler = new DefaultCommandHandler();
 
         private readonly Dictionary<Type, object> handlers;
 
@@ -33,7 +27,7 @@ namespace MultiEventDisruptor
                 return handler;
             }
 
-            return defaultHandler;
+            return DefaultHandler;
         }
     }
 }

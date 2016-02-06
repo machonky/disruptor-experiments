@@ -1,24 +1,21 @@
 ﻿using System.Threading.Tasks;
 using Disruptor;
 using Disruptor.Dsl;
-using HelloDisruptor;
 
 namespace MultiEventDisruptor
 {
     public class TicketingApplication
     {
+        public IApplicationServiceBus ApplicationServiceBus { get; set; }
         private const int Million = 1000000;
         private const int Iterations = 10*Million;
 
         private readonly Disruptor<CommandMessage> inputDisruptor;
         private readonly CommandMessageTranslator commandMessageTranslator;
-        public IObjectIdService ObjectIdService { get; private set; }
-        public IUtcClockService UtcClock { get; private set; }
 
-        public TicketingApplication(ITicketCommandFactory ticketCommandFactory, IObjectIdService objectIdService, IUtcClockService utcClock)
+        public TicketingApplication(ITicketCommandFactory ticketCommandFactory, IConcertService concertService, IApplicationServiceBus applicationServiceBus)
         {
-            ObjectIdService = objectIdService;
-            UtcClock = utcClock;
+            ApplicationServiceBus = applicationServiceBus;
 
             var inputBufferSize = 2 << 10;
 
@@ -27,15 +24,15 @@ namespace MultiEventDisruptor
             var commandHandlers = new CommandHandlerCollection();
 
             // Register command handlers...
-            commandHandlers.AddHandler(typeof(PurchaseTicketCommand), new PurchaseTicketCommandHandler());
-            commandHandlers.AddHandler(typeof(CancelTicketCommand), new CancelTicketCommandHandler());
-            commandHandlers.AddHandler(typeof(CreateConcertCommand), new CreateConcertCommandHandler());
+            commandHandlers.AddHandler(typeof(PurchaseTicketCommand), new PurchaseTicketCommandHandler(concertService));
+            commandHandlers.AddHandler(typeof(CancelTicketCommand), new CancelTicketCommandHandler(concertService));
+            commandHandlers.AddHandler(typeof(CreateConcertCommand), new CreateConcertCommandHandler(concertService));
 
             inputDisruptor = new Disruptor<CommandMessage>(() => new CommandMessage(), claimStrategy, waitStrategy, TaskScheduler.Default);
             inputDisruptor.HandleEventsWith(new CommandMessageHandler(commandHandlers));
 
             // Publishers and translators to input buffer
-            commandMessageTranslator = new CommandMessageTranslator(ticketCommandFactory, ObjectIdService, UtcClock);
+            commandMessageTranslator = new CommandMessageTranslator(ticketCommandFactory, ApplicationServiceBus);
         }
 
         public void Run()

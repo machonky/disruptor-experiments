@@ -57,7 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServiceBus.cs" />
     <Compile Include="Commands\CancelTicketCommand.cs" />
+    <Compile Include="Commands\UnknownCommand.cs" />
+    <Compile Include="ConcertService.cs" />
+    <Compile Include="Handlers\DefaultCommandHandler.cs" />
     <Compile Include="Handlers\CancelTicketCommandHandler.cs" />
     <Compile Include="CommandHandlerCollection.cs" />
     <Compile Include="CommandMessage.cs" />
@@ -66,10 +70,12 @@
     <Compile Include="Commands\CreateConcertCommand.cs" />
     <Compile Include="Handlers\CreateConcertCommandHandler.cs" />
     <Compile Include="Commands\ICancelTicketCommand.cs" />
+    <Compile Include="IApplicationServiceBus.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Commands\ITicketCommandFactory.cs" />
     <Compile Include="Commands\ICreateConcertCommand.cs" />
     <Compile Include="Commands\IPurchaseTicketCommand.cs" />
+    <Compile Include="IConcertService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\PurchaseTicketCommand.cs" />
