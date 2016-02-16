@@ -62,14 +62,14 @@
     <Compile Include="Commands\UnknownCommand.cs" />
     <Compile Include="ConcertService.cs" />
     <Compile Include="Handlers\DefaultCommandHandler.cs" />
-    <Compile Include="Handlers\CancelTicketCommandHandler.cs" />
     <Compile Include="CommandHandlerCollection.cs" />
     <Compile Include="CommandMessage.cs" />
     <Compile Include="CommandMessageHandler.cs" />
     <Compile Include="CommandMessageTranslator.cs" />
     <Compile Include="Commands\CreateConcertCommand.cs" />
-    <Compile Include="Handlers\CreateConcertCommandHandler.cs" />
     <Compile Include="Commands\ICancelTicketCommand.cs" />
+    <Compile Include="Handlers\SimpleEventHandler.cs" />
+    <Compile Include="Handlers\SimpleEventHandlerFactory.cs" />
     <Compile Include="IApplicationServiceBus.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Commands\ITicketCommandFactory.cs" />
@@ -79,7 +79,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\PurchaseTicketCommand.cs" />
-    <Compile Include="Handlers\PurchaseTicketCommandHandler.cs" />
     <Compile Include="Commands\TicketCommandFactory.cs" />
     <Compile Include="TicketingApplication.cs" />
   </ItemGroup>
